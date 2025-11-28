@@ -10,7 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_11_24_004420) do
+ActiveRecord::Schema[7.1].define(version: 2025_11_28_222527) do
+  create_table "event_types", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "prefectures", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "record_event_types", force: :cascade do |t|
+    t.integer "record_id", null: false
+    t.integer "event_type_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_type_id"], name: "index_record_event_types_on_event_type_id"
+    t.index ["record_id"], name: "index_record_event_types_on_record_id"
+  end
+
   create_table "records", force: :cascade do |t|
     t.integer "user_id"
     t.integer "image_id"
@@ -25,6 +46,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_11_24_004420) do
     t.index ["user_id"], name: "index_records_on_user_id"
   end
 
+  add_foreign_key "record_event_types", "event_types"
+  add_foreign_key "record_event_types", "records"
   add_foreign_key "records", "categories"
   add_foreign_key "records", "images"
   add_foreign_key "records", "users"

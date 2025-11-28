@@ -1,7 +1,8 @@
 class Record < ApplicationRecord
     belongs_to :user
     belongs_to :image
-    belongs_to :category
+    belongs_to :prefecture
+    has_many :event_types, through: :record_event_types
 
     enum status: { draft: 0, published: 1 }
 
