@@ -3,7 +3,7 @@
     <h4>活動場所</h4>
     <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "選択してください" %>
     <h4>イベント種別</h4>
-    <%= f.collection_check_boxes :event_type_ids, event_type_ids, EventType.all, :id, :name do |cb| %>
+    <%= f.collection_check_boxes :event_type_ids, EventType.all, :id, :name do |cb| %>
         <div>
             <%= cb.check_box %>
             <%= cb.label %>

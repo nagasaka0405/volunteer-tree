@@ -1,1 +1,1 @@
-import "star_rating"// Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
+import "./star_rating.js"// Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
