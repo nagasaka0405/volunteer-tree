@@ -10,7 +10,11 @@ class RecordsController < ApplicationController
   end
 
   def index
-    @posts = Post.all
+    @records = Record.all
+  end
+
+  def show
+    @record = Record.find(params[:id])
   end
 
     private
