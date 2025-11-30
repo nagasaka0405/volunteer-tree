@@ -17,6 +17,22 @@ class RecordsController < ApplicationController
     @record = Record.find(params[:id])
   end
 
+  def edit
+    @record = Record.find(params[:id])
+  end
+
+  def update
+    record = Record.find(params[:id])
+    record.update(record_params)
+    redirect_to record_path(record.id)
+  end
+  
+  def destroy
+    record = Record.find(params[:id])
+    record.destroy
+    redirect_to records_path
+  end
+  
     private
     def record_params
       params.require(:record).permit(:event_name, :prefecture_id, :content, :star_rating, event_type_ids: {})
