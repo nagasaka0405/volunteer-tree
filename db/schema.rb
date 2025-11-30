@@ -10,9 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_11_28_222527) do
+ActiveRecord::Schema[7.1].define(version: 2025_11_30_012128) do
   create_table "event_types", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.string "file_path"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -35,20 +41,36 @@ ActiveRecord::Schema[7.1].define(version: 2025_11_28_222527) do
   create_table "records", force: :cascade do |t|
     t.integer "user_id"
     t.integer "image_id"
-    t.integer "category_id"
     t.text "content"
     t.integer "star_rating"
     t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_records_on_category_id"
+    t.string "event_name"
+    t.integer "event_type_id", null: false
+    t.integer "prefecture_id", null: false
+    t.index ["event_type_id"], name: "index_records_on_event_type_id"
     t.index ["image_id"], name: "index_records_on_image_id"
+    t.index ["prefecture_id"], name: "index_records_on_prefecture_id"
     t.index ["user_id"], name: "index_records_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "record_event_types", "event_types"
   add_foreign_key "record_event_types", "records"
-  add_foreign_key "records", "categories"
+  add_foreign_key "records", "event_types"
   add_foreign_key "records", "images"
+  add_foreign_key "records", "prefectures"
   add_foreign_key "records", "users"
 end

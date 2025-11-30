@@ -8,8 +8,13 @@ class RecordsController < ApplicationController
     record.save
     redirect_to '/top'
   end
+
+  def index
+    @posts = Post.all
+  end
+
     private
     def record_params
-      params.require(:record).permit(:prefecture_id, :content, :star_rating, event_type_ids: {})
+      params.require(:record).permit(:event_name, :prefecture_id, :content, :star_rating, event_type_ids: {})
     end
 end
