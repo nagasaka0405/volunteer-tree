@@ -1,5 +1,5 @@
 <h1>記録一覧</h1>
 <% @records.each do |record| %>
   <p>イベント名</p>
-  <span><%= record.event_name %></span>
+  <span><%= link_to record.event_name, record_path(record) %></span>
 <% end %>

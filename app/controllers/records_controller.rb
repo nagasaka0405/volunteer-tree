@@ -6,7 +6,7 @@ class RecordsController < ApplicationController
   def create
     record = Record.new(post_params)
     record.save
-    redirect_to '/top'
+    redirect_to record_path(record.id)
   end
 
   def index
