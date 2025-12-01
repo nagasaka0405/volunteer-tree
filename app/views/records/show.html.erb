@@ -2,6 +2,7 @@
 <p><%= @record.event_name %></p>
 <h2>活動記録</h2>
 <p><%= @record.content %></p>
+<p>活動写真</p>
 <% if @record.photo.attached? %>
   <%= image_tag @record.photo.variant(resize_to_limit: [300, 300]) %>
 <% end %>

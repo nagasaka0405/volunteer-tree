@@ -2,4 +2,7 @@
 <% @records.each do |record| %>
   <p>イベント名</p>
   <span><%= link_to record.event_name, record_path(record) %></span>
+  <p>活動写真</p>
+  <% if record.photo.attached? %>
+  <%= image_tag @record.photo.variant(resize_to_limit: [100, 100]) %>
 <% end %>

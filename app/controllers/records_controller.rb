@@ -32,9 +32,9 @@ class RecordsController < ApplicationController
     record.destroy
     redirect_to records_path
   end
-  
+
     private
     def record_params
-      params.require(:record).permit(:event_name, :prefecture_id, :content, :star_rating, event_type_ids: {})
+      params.require(:record).permit(:event_name, :prefecture_id, :content, :star_rating, :photo, event_type_ids: [])
     end
 end
