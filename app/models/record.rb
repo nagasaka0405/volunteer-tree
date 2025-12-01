@@ -1,8 +1,9 @@
 
 class Record < ApplicationRecord
     belongs_to :user
-    belongs_to :image
+    has_one_attached :photo
     belongs_to :prefecture
+    
     has_many :record_event_types, dependent: :destroy
     has_many :event_types, through: :record_event_types
 

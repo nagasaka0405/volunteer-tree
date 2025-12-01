@@ -21,6 +21,9 @@
     </div>
     <%= f.hidden_field :star_rating, id: "record_star_rating" %>
 
+    <h4>写真を添付</h4>
+        <%= f.file_field :photo %>
+
     <%= f.submit '投稿する' %>
 <% end %>
 
