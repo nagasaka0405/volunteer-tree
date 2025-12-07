@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_12_01_102346) do
+ActiveRecord::Schema[7.1].define(version: 2025_12_07_005401) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -68,17 +68,13 @@ ActiveRecord::Schema[7.1].define(version: 2025_12_01_102346) do
 
   create_table "records", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "image_id"
     t.text "content"
     t.integer "star_rating"
     t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "event_name"
-    t.integer "event_type_id", null: false
     t.integer "prefecture_id", null: false
-    t.index ["event_type_id"], name: "index_records_on_event_type_id"
-    t.index ["image_id"], name: "index_records_on_image_id"
     t.index ["prefecture_id"], name: "index_records_on_prefecture_id"
     t.index ["user_id"], name: "index_records_on_user_id"
   end
@@ -100,8 +96,6 @@ ActiveRecord::Schema[7.1].define(version: 2025_12_01_102346) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "record_event_types", "event_types"
   add_foreign_key "record_event_types", "records"
-  add_foreign_key "records", "event_types"
-  add_foreign_key "records", "images"
   add_foreign_key "records", "prefectures"
   add_foreign_key "records", "users"
 end
