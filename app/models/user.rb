@@ -7,4 +7,5 @@ class User < ApplicationRecord
   # ユーザーは複数の記録を持つ
   has_many :records, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 end

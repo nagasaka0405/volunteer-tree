@@ -18,6 +18,8 @@ class RecordsController < ApplicationController
 
   def show
     @record = Record.find(params[:id])
+    @comment = Comment.new
+    @comments = @record.comments.page(params[:page]).per(7).reverse_order
   end
 
   def edit

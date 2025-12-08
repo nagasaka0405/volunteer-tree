@@ -1,6 +1,17 @@
 <h1>活動記録詳細</h1>
 <h2>イベント名</h2>
 <p><%= @record.event_name %></p>
+<p class="caption"><%= @record.location %>
+  <% if @record.favorited_by?(current_user) %>
+    <%= link_to record_favorites_path(@record), data: { turbo_method: :delete }, class: "favorite_btn" do %>
+        ♥<%= @record.favorites.count %> いいね
+    <% end %>
+  <% else %>
+    <%= link_to record_favorites_path(@record), data: { turbo_method: :record }, class: "favorite_btn" do %>
+        ♡<%= @record.favorites.count %>いいね
+    <% end %>
+  </p> 
+
 <h2>活動記録</h2>
 <p><%= @record.content %></p>
 <p>活動写真</p>

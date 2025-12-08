@@ -7,6 +7,11 @@ class Record < ApplicationRecord
 
     has_many :record_event_types, dependent: :destroy
     has_many :event_types, through: :record_event_types
+    has_many :favorites, dependent: :destroy
+
+    def favorited_by?(user)
+        favorites.where(user_id: user.id).exists?
+    end
 
     enum status: { draft: 0, published: 1 }
 
