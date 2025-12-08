@@ -3,4 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  # ユーザーは複数の記録を持つ
+  has_many :records, dependent: :destroy
+  has_many :comments, dependent: :destroy
 end

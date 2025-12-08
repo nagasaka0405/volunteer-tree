@@ -1,5 +1,4 @@
-<h1>新規活動記録の投稿</h1>
-<%= form_with model: record, local:true do |f| %>
+<%= form_with model: record, local:true, html: { multipart: true } do |f| %>
     <h4>イベント名</h4>
     <%= f.text_field :event_name, placeholder: "イベント名を入力してください" %>
     <h4>活動場所</h4>
@@ -23,6 +22,13 @@
 
     <h4>写真を添付</h4>
         <%= f.file_field :photo %>
+        
+    <% if record.photo.attached? %>
+        <div class="preview">
+          <p>現在の写真:</p>
+          <%= image_tag url_for(record.photo), size: "200x200" %>
+        </div>
+    <% end %>
 
     <%= f.submit '投稿する' %>
 <% end %>

@@ -1,3 +1,4 @@
+<h1>活動記録詳細</h1>
 <h2>イベント名</h2>
 <p><%= @record.event_name %></p>
 <h2>活動記録</h2>
@@ -9,3 +10,28 @@
 <%= link_to '編集する', edit_record_path(@record) %></br>
 <%= link_to '削除する', record_path(@record), data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？"} %></br>
 <%= link_to '投稿一覧ページへ', records_path %>
+<div class="comments ml-5 mt-5">
+   <%= form_with(model:[@record, @comment], local: true) do |f| %>
+    <%= f.text_area :comment, :size=>"60x3",placeholder: "コメントする" %>
+    <%= f.submit "送信する", class: "btn btn-success mb-4" %>
+   <% end %>
+
+   <p>コメント件数:<%= @comments.count %></p>
+   <div class="comments-index mb-2">
+      <% @comments.each do |comment| %>
+        <div class="comments-index mb-2>
+           <%= comment.user.name %>
+           <%= comment.created_at.strftime('%Y/%m/%d') %><br>
+           <div class="d-flex">
+              <%= comment.comment %>
+              <% if comment.user == current_user %>
+                 <div class="comment-delete">
+                    <%= link_to "削除",record_comment_path(comment.record, comment), data: { turbo_method: :delete }, class: "btn-sm btn-danger" %>
+                 </div>
+              <% end %>
+           </div>
+        </div>
+      <% end %>
+      <%= paginate @comments %>
+    </div>
+        
