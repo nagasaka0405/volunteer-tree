@@ -1,0 +1,25 @@
+<div class="cover-user-show">
+  <div class="container d-flex flex-column align-items-center">
+     <div class="row mt-5">
+        <% if user_signed_in? && @user == current_user %>
+           <h1 class="font-weight-normal">マイページ<.h1>
+        <% else %>
+           <h1 class="font-weight-normal"><%= @user.name %>さんのページ</h1>
+        <% end %>
+     </div>
+        <divclass="row mt-5 index-left w-100">
+           <% @records.each do |record| %>
+              <div class="one-record col-sm-3 mb-3">
+              <%= link_to record_path(record) do %>
+                 <% if record.image.attached? %>
+                    <%= image_tag record.image.varient(resize_to_limit: [200, 133]) %>
+                 <% end %>
+                 <p class="caption mb-0"><%= record.location %></p>
+                 <p class="caption"><%= "#{record.comments.count} コメント" %></p>
+              <% end %>
+           </div>
+        <% end %>>
+     </div>
+     <%= paginate @records %>
+  </div>
+</div>

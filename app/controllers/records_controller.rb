@@ -41,7 +41,7 @@ class RecordsController < ApplicationController
     private
     def record_params
       params.require(:record)
-            .permit(:event_name, :prefecture_id, :content, :star_rating, :photo, event_type_ids: [])
+            .permit(:user_id,:event_name, :prefecture_id, :content, :star_rating, :photo, event_type_ids: [])
             .tap do |whitelisted|
                whitelisted[:event_type_ids]&.reject!(&:blank?)
             end
