@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_12_11_041132) do
+ActiveRecord::Schema[7.1].define(version: 2025_12_13_014319) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -94,6 +94,15 @@ ActiveRecord::Schema[7.1].define(version: 2025_12_11_041132) do
     t.index ["user_id"], name: "index_records_on_user_id"
   end
 
+  create_table "relationships", force: :cascade do |t|
+    t.integer "follower_id", null: false
+    t.integer "followed_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["followed_id"], name: "index_relationships_on_followed_id"
+    t.index ["follower_id"], name: "index_relationships_on_follower_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -114,4 +123,6 @@ ActiveRecord::Schema[7.1].define(version: 2025_12_11_041132) do
   add_foreign_key "record_event_types", "records"
   add_foreign_key "records", "prefectures"
   add_foreign_key "records", "users"
+  add_foreign_key "relationships", "users", column: "followed_id"
+  add_foreign_key "relationships", "users", column: "follower_id"
 end
