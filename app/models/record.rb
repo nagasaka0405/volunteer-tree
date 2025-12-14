@@ -15,5 +15,10 @@ class Record < ApplicationRecord
 
     enum status: { draft: 0, published: 1 }
 
-    validates :star_rating,  inclusion: { in: 1..5 }
+    validates :star_rating, presence: true
+                            inclusion: { in 1..5 }
+    validates :event_name, presence: true, length: { maximum: 20 }
+    validates :prefecture_id, presence: true
+    validates :content, presence: true, length: { maximum: 195 }
+    validates :event_types, presence: true
 end

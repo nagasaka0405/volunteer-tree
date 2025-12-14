@@ -18,8 +18,10 @@
 <% if @record.photo.attached? %>
   <%= image_tag @record.photo.variant(resize_to_limit: [300, 300]) %>
 <% end %>
-<%= link_to '編集する', edit_record_path(@record) %></br>
-<%= link_to '削除する', record_path(@record), data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？"} %></br>
+<% if @record.user == current_user %>
+   <%= link_to '編集する', edit_record_path(@record) %></br>
+   <%= link_to '削除する', record_path(@record), data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？"} %></br>
+<% end %>
 <%= link_to '投稿一覧ページへ', records_path %>
 <div class="comments ml-5 mt-5">
    <%= form_with(model:[@record, @comment], local: true) do |f| %>

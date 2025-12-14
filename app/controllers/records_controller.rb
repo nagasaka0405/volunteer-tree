@@ -4,9 +4,9 @@ class RecordsController < ApplicationController
   end
 
   def create
-    record = current_user.records.build(record_params)
-    if record.save
-      redirect_to record_path(record), notice: "記録を保存しました"
+    @record = current_user.records.build(record_params)
+    if @record.save
+      redirect_to record_path(@record), notice: "記録を保存しました"
     else
       render :new, status: :unprocessable_entity
     end
