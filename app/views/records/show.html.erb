@@ -1,4 +1,17 @@
-<h1>活動記録詳細</h1>
+<div class="cover-show">
+   <div class="container d-flex flex-column align-items-center">
+      <div class="row mt-5 mb-5">
+         <h1 class="font-weight-normal">活動記録詳細</h1>
+      </div>
+      <% if @comment.errors.any? %>
+         <div class="card text-center text-white bg-danger mt-3">
+            <%= @comment.errors.count %>件のエラーが発生しました
+            <% @comment.errors.full_messages.each do |message| %>
+               <%= message %>
+            <% end %>
+         </div>
+      <% end %>
+      <div class="container d-flex mt-5">
 <h2>イベント名</h2>
 <p><%= @record.event_name %></p>
 <p class="caption"><%= @record.location %>

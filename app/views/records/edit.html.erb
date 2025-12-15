@@ -1,2 +1,14 @@
-<h1>編集する</h1>
+<div class="cover-edit">
+   <div class="container">
+      <div class="row">
+         <h1 class="font-weight-normal mt-5 mb-5">活動記録編集</h1>
+      </div>
+      <% if @record.errors.any? %>
+         <div class="card text-center text-white bg-danger mb-3">
+            <%= @record.errors.count %>件のエラーが発生しました
+            <% @record.errors.full_messages.each do |message| %>
+                <%= message %>
+            <% end %>
+         </div>
+      <% end %>
 <%= render "form", record: @record %>
