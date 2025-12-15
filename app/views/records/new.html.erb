@@ -10,4 +10,7 @@
    </div>
 <% end %>
 <%= render "form", record: @record %>
+<div class="form-group">
+   <%= f.select :status, Record.statuses.keys.map { |k| [t("enums.record.status.#{k}"),k]}, {}, {class: "custom-select w-25 mb-3"} %>
+</div>
 

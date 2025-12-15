@@ -13,7 +13,8 @@ class RecordsController < ApplicationController
   end
 
   def index
-    @records = Record.all
+    @records = Record.page(params[:page]).reverse_order
+    @records = @records.where('location LIKE?', "%#{params[:search]}%") if params[:search].present?
   end
 
   def show
