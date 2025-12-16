@@ -1,0 +1,22 @@
+<div class="row mt-3 mb-3 align-self-end">
+   <%= form_with url: records_path, method: :get, local: true do |f| %>
+      <%= f.text_field :search %>
+      <%= f.submit '検索する', name: nil %>
+   <% end %>
+</div>
+<div class="row mt-5 index-left w-100">
+   <% records.each do |record| %>
+      <div class="one-record col-sm-4 mb-3">
+         <%= link_to record_path(record) do %>
+            <p class="caption"><%= record.user.name %></p>
+            <% if record.image.attached? %>
+               <%= image_tag record.image.varient(resize_to_limit: [300, 200]) %><br>
+            <% end %>
+            <p class="caption"><%= record.event_name %></p>
+            <p class="caption"><%= "#{record.comments.count} コメント" %></p>
+         <% end %>
+       </div>
+   <% end %>
+</div>
+<%= paginate @records %>
+        

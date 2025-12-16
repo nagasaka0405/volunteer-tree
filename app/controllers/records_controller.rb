@@ -13,7 +13,7 @@ class RecordsController < ApplicationController
   end
 
   def index
-    @records = Record.page(params[:page]).reverse_order
+    @records = Record.published.page(params[:page]).reverse_order
     @records = @records.where('location LIKE?', "%#{params[:search]}%") if params[:search].present?
   end
 
@@ -42,10 +42,14 @@ class RecordsController < ApplicationController
     redirect_to records_path
   end
 
+  def confirm
+    @records = current_user.records.draft.page(params[:page]).reverse_order
+  end
+
     private
     def record_params
       params.require(:record)
-            .permit(:user_id,:event_name, :prefecture_id, :content, :star_rating, :photo, event_type_ids: [])
+            .permit(:user_id,:event_name, :prefecture_id, :content, :star_rating, :photo, :status, event_type_ids: [])
             .tap do |whitelisted|
                whitelisted[:event_type_ids]&.reject!(&:blank?)
             end

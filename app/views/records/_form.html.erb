@@ -29,6 +29,8 @@
           <%= image_tag url_for(record.photo), size: "200x200" %>
         </div>
     <% end %>
-
+    <div class="form-group">
+         <%= f.select :status, Record.statuses.keys.map { |k| [t("enums.record.status.#{k}"),k]}, {}, {class: "custom-select w-25 mb-3"} %>
+    </div>
     <%= f.submit '投稿する' %>
 <% end %>
