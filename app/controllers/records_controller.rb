@@ -14,7 +14,7 @@ class RecordsController < ApplicationController
 
   def index
     @records = Record.published.page(params[:page]).reverse_order
-    @records = @records.where('location LIKE?', "%#{params[:search]}%") if params[:search].present?
+    @records = @records.where('ecent_name LIKE?', "%#{params[:search]}%") if params[:search].present?
   end
 
   def show
@@ -30,7 +30,7 @@ class RecordsController < ApplicationController
   def update
     @record = Record.find(params[:id])
     if @record.update(record_params)
-       redirect_to record_path(record.id)
+       redirect_to record_path(@record.id)
     else
        render :edit, status: :unprocessable_entity
     end
@@ -38,7 +38,7 @@ class RecordsController < ApplicationController
   
   def destroy
     record = Record.find(params[:id])
-    record.destroy
+    @record.destroy
     redirect_to records_path
   end
 

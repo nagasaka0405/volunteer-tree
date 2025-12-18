@@ -74,3 +74,5 @@ gem 'jquery-rails'
 gem "sassc-rails"
 
 gem 'enum_help'
+
+gem 'kaminari'
