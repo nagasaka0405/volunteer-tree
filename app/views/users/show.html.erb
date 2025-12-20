@@ -43,8 +43,8 @@
         <% @records.each do |record| %>
           <div class="one-record col-sm-3 mb-3">
             <%= link_to record_path(record) do %>
-                <% if record.image.attached? %>
-                   <%= image_tag record.image.varient(resize_to_limit: [200, 133]) %>
+                <% if record.photo.attached? %>
+                   <%= image_tag record.photo.variant(resize_to_limit: [200, 133]) %>
                 <% end %>
                 <p class="caption mb-0"><%= record.location %></p>
                 <p class="caption"><%= "#{record.comments.count} コメント" %></p>
