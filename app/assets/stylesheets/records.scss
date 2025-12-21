@@ -5,8 +5,8 @@ h1 {
 .cover-new {
     height: 100%;
     width: 100%;
-    background-image: image-url("new.JPEG");
-    background-color: rgba(255,255,255,0.4);
+    background-image: image-url("new.JPG");
+    background-color: rgba(255, 255, 255, 0.4);
     background-size: 100% 100%;
 }
 
@@ -16,4 +16,67 @@ h1 {
 
 .form-group {
     width: 600px;
+}
+
+.cover-index {
+    height: 100%;
+    width: 100%;
+    background-image: image-url("index.JPG");
+    background-color: rgba(255, 255, 255, 0.4);
+    background-blend-mode: lighten;
+    background-size: 100% 100%;
+}
+
+.one-record img:hover {
+    transform: scale(1.2,1.2);
+}
+
+.caption {
+    color: black;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.index-left {
+    margin-left: 2.5rem!important;
+}
+
+.cover-show {
+    min-height: 100vh;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.cover-show .card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.cover-show h1 {
+    font-size: 1.4rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.cover-show p {
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.cover-show img {
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    max-width: 100%;
+    height: auto;
+}
+
+.favorite_btn {
+    display: inline-block;
+    font-size: 1rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    background-color: #ffe4ec;
+    color: #d6336c;
+    text-decoration: none;
 }

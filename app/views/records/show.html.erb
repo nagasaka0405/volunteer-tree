@@ -1,64 +1,80 @@
 <div class="cover-show">
-   <div class="container d-flex flex-column align-items-center">
-      <div class="row mt-5 mb-5">
+   <div class="container py-5">
+
+      <div class="text-center mb-5">
          <h1 class="font-weight-normal">活動記録詳細</h1>
       </div>
+
       <% if @comment.errors.any? %>
-         <div class="card text-center text-white bg-danger mt-3">
+         <div class="alert alert-danger text-center">
             <%= @comment.errors.count %>件のエラーが発生しました
             <% @comment.errors.full_messages.each do |message| %>
                <%= message %>
             <% end %>
          </div>
       <% end %>
-      <div class="container d-flex mt-5">
-<h2>イベント名</h2>
-<p><%= @record.event_name %></p>
-<p class="caption"><%= @record.event_name %></p>
-  <% if @record.favorited_by?(current_user) %>
-    <%= link_to record_favorites_path(@record), data: { turbo_method: :delete }, class: "favorite_btn" do %>
-        ♥<%= @record.favorites.count %> いいね
-    <% end %>
-  <% else %>
-    <%= link_to record_favorites_path(@record), data: { turbo_method: :record }, class: "favorite_btn" do %>
-        ♡<%= @record.favorites.count %>いいね
-    <% end %>
-  <% end %> 
 
-<h2>活動記録</h2>
-<p><%= @record.content %></p>
-<p>活動写真</p>
-<% if @record.photo.attached? %>
-  <%= image_tag @record.photo.variant(resize_to_limit: [300, 300]) %>
-<% end %>
-<% if @record.user == current_user %>
-   <%= link_to '編集する', edit_record_path(@record) %></br>
-   <%= link_to '削除する', record_path(@record), data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？"} %></br>
-<% end %>
-<%= link_to '投稿一覧ページへ', records_path %>
-<div class="comments ml-5 mt-5">
-   <%= form_with(model:[@record, @comment], local: true) do |f| %>
-    <%= f.text_area :comment, :size=>"60x3",placeholder: "コメントする" %>
-    <%= f.submit "送信する", class: "btn btn-success mb-4" %>
-   <% end %>
+      <div class="card p-4 mb-5">
 
-   <p>コメント件数:<%= @comments.count %></p>
-   <div class="comments-index mb-2">
-      <% @comments.each do |comment| %>
-        <div class="comments-index mb-2">
-           <%= comment.user.name %>
-           <%= comment.created_at.strftime('%Y/%m/%d') %><br>
-           <div class="d-flex">
-              <%= comment.comment %>
-              <% if comment.user == current_user %>
-                 <div class="comment-delete">
-                    <%= link_to "削除",record_comment_path(comment.record, comment), data: { turbo_method: :delete }, class: "btn-sm btn-danger" %>
-                 </div>
+        <h2 class="mb-2">イベント名</h2>
+        <p><%= @record.event_name %></p>
+        
+        <div class="mb-4">
+           <% if @record.favorited_by?(current_user) %>
+              <%= link_to record_favorites_path(@record), data: { turbo_method: :delete }, class: "favorite_btn" do %>
+                 ♥<%= @record.favorites.count %> いいね
               <% end %>
-           </div>
+           <% else %>
+              <%= link_to record_favorites_path(@record), data: { turbo_method: :record }, class: "favorite_btn" do %>
+                 ♡<%= @record.favorites.count %>いいね
+              <% end %>
+           <% end %>
+        </div> 
+
+        <h2 class="mb-2">活動記録</h2>
+        <p><%= @record.content %></p>
+
+        <h2 class="mt-4 mb-2">活動写真</h2>
+        <% if @record.photo.attached? %>
+           <%= image_tag @record.photo.variant(resize_to_limit: [300, 300]) %>
+        <% end %>
+
+        <% if @record.user == current_user %>
+           <%= link_to '編集する', edit_record_path(@record), class: "btn btn-outline-primary mr-2" %>
+           <%= link_to '削除する', record_path(@record), data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" } class: "btn btn-outline-danger" %>
+        <% end %>
+
+        <div class="mt-3">
+           <%= link_to '投稿一覧ページへ', records_path, class: "btn btn-secondary" %>
         </div>
-      <% end %>
-      <%= paginate @comments %>
+      </div>
+      
+      <div class="comments">
+
+         <div class="mb-4">
+            <%= form_with(model:[@record, @comment], local: true) do |f| %>
+               <%= f.text_area :comment, :size=>"60x3",placeholder: "コメントする" class: "form-control mb-2" %>
+               <%= f.submit "送信する", class: "btn btn-success mb-4" %>
+            <% end %>
+         </div>
+
+         <h3 class="mb-3">コメント件数:<%= @comments.count %></h3>
+
+         <% @comments.each do |comment| %>
+            <div class="border-left pl-3 mb-3">
+               <strong><%= comment.user.name %></strong>
+               <span class="text-muted ml-2"><%= comment.created_at.strftime('%Y/%m/%d') %></span>
+               <p><%= comment.comment %></p>
+
+               <% if comment.user == current_user %>
+                  <%= link_to "削除",record_comment_path(comment.record, comment), data: { turbo_method: :delete }, class: "btn-sm btn-danger" %>
+               <% end %>
+            </div>
+         <% end %>
+         
+         <%= paginate @comments %>
+   
+      </div>
    </div>
 </div>
         
