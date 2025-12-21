@@ -1,7 +1,8 @@
 <div class="row mt-5">
    <h1 class="font-weight-normal">新規活動記録の投稿</h1>
 </div>
-<% if @record.errors.any?>
+
+<% if @record.errors.any? %>
    <div class="card text-center text-white bg-danger mt-3">
       <%= @record.errors.count %>件のエラーが発生しました
       <% @record.errors.full_messages.each do |message| %>
