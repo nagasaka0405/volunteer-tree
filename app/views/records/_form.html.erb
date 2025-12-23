@@ -23,10 +23,10 @@
     <h4>写真を添付</h4>
         <%= f.file_field :photo %>
         
-    <% if record.photo.attached? %>
+    <% if record.persisted? && record.photo.attached? %>
         <div class="preview">
           <p>現在の写真:</p>
-          <%= image_tag url_for(record.photo), size: "200x200" %>
+          <%= image_tag record.photo, size: "200x200" %>
         </div>
     <% end %>
     <div class="form-group">
