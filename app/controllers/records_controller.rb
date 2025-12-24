@@ -21,6 +21,8 @@ class RecordsController < ApplicationController
     @record = Record.find(params[:id])
     @comment = Comment.new
     @comments = @record.comments.page(params[:page]).per(7).reverse_order
+    #閲覧数カウント
+    @record.increment!(:view_count)
   end
 
   def edit
