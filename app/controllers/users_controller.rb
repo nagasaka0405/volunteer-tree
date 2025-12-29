@@ -5,25 +5,33 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @current_entry = Entry.where(user_id: current_user.id)
-    @another_entry = Entry.where(user_id: @user.id)
-    unless @user.id == current_user.id
-      @current_entry.each do |current|
-        @another_entry.each do |another|
-          if current.room_id == another.room_id
-            @is_room = true
-            @room_id = current.room_id
-          end
+    # 相互フォロー判定
+    @is_mutual_follow = current_user.following_user.include?(@user)&&@user.following_user.include?(current_user)
+    #DM機能は相互フォローのときだけ許可
+    if @is_mutual_follow
+         @current_entry = Entry.where(user_id: current_user.id)
+         @another_entry = Entry.where(user_id: @user.id)
+      #既存のroomを探す     
+         @current_entry.each do |current|
+         @another_entry.each do |another|
+           if current.room_id == another.room_id
+             @is_room = true
+             @room_id = current.room_id
+           end
         end
       end
+      #なければ新規作成
       unless @is_room
         @room = Room.new
         @entry = Entry.new
       end
+      @message = Message.new
     end
+   
     @records = @user.records.page(params[:page]).per(8).reverse_order
     @following_users = @user.following_users
     @follower_users = @user.follower_users
+   
   end
 
   def edit
