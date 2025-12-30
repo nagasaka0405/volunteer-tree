@@ -19,7 +19,7 @@
            </p>
            <% else %>
            <p class="d-flex align-self-end">
-              <%= link_to 'フォローする', user_relationships_path(@user.id), data: { turbo_method: post },  class:"btn btn-success" %>
+              <%= link_to 'フォローする', user_relationships_path(@user.id), data: { turbo_method: :post },  class:"btn btn-success" %>
            </p>
         <% end %>
      <% end %>
@@ -36,7 +36,7 @@
             <h6>フォロー<%= @following_users.count %></h6>
         <% end %>
         <%= link_to followers_user_path(@user) do %>
-            <h6>フォロワー<%= @following_users.count %></h6>
+            <h6>フォロワー<%= @follower_users.count %></h6>
         <% end %>
      </div>
      <% if @is_mutual_follow %>
@@ -60,7 +60,7 @@
                 <p class="caption"><%= "#{record.comments.count} コメント" %></p>
             <% end %>
           </div>
-        <% end %>>
+        <% end %>
      </div>
      <%= paginate @records %>
   </div>

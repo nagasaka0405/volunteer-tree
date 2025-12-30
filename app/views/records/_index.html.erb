@@ -13,7 +13,7 @@
                <%= image_tag record.photo.variant(resize_to_limit: [300, 200]) %><br>
             <% end %>
             <p class="caption"><%= record.event_name %></p>
-            <%= @record.view_count %>
+            <%= record.view_count %>
             <p class="caption"><%= "#{record.comments.count} コメント" %></p>
          <% end %>
        </div>

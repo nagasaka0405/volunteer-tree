@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     # 相互フォロー判定
-    @is_mutual_follow = current_user.following_user.include?(@user)&&@user.following_user.include?(current_user)
+    @is_mutual_follow = current_user.following_users.include?(@user) && @user.following_users.include?(current_user)
     #DM機能は相互フォローのときだけ許可
     if @is_mutual_follow
          @current_entry = Entry.where(user_id: current_user.id)
