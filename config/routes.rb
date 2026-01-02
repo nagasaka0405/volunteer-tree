@@ -7,8 +7,9 @@ Rails.application.routes.draw do
     resources :relationships, only: [:create, :destroy]
   end
   
-  resources :messages, only: [:create]
-  resources :rooms, only: [:create, :show]
+  resources :rooms, only: [:create, :show] do
+     resources :messages, only: [:create]
+  end
   
   resources :records do
      resources :comments, only:[:create, :destroy]

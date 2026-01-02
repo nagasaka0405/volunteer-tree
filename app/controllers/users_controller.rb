@@ -9,22 +9,19 @@ class UsersController < ApplicationController
     @is_mutual_follow = current_user.following_users.include?(@user) && @user.following_users.include?(current_user)
     #DM機能は相互フォローのときだけ許可
     if @is_mutual_follow
-         @current_entry = Entry.where(user_id: current_user.id)
-         @another_entry = Entry.where(user_id: @user.id)
-      #既存のroomを探す     
-         @current_entry.each do |current|
-         @another_entry.each do |another|
-           if current.room_id == another.room_id
-             @is_room = true
-             @room_id = current.room_id
-           end
-        end
+      #既存のroomを探す
+      @room = Room.joins(:entries)
+                  .where(entries: { user_id: current_user.id })
+                  .joins(:entries)
+                  .where(entries: { user_id: @user.id })
+                  .first
+      #なければ作る
+      if @room.nil?
+        @room = Room.create!
+        Entry.create!(room_id: @room.id, user_id: current_user.id)
+        Entry.create!(room_id: @room.id, user_id: @user.id)
       end
-      #なければ新規作成
-      unless @is_room
-        @room = Room.new
-        @entry = Entry.new
-      end
+ 
       @message = Message.new
     end
    
