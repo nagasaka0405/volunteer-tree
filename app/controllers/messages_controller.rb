@@ -16,7 +16,8 @@ class MessagesController < ApplicationController
        if @message.save
            redirect_to room_path(@message.room_id)
        else
-           redirect_back(fallback_location: root_path)
+           @messages = @room.messages.includes(:user)
+           render "rooms/show"
        end
     end
 

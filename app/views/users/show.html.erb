@@ -41,9 +41,9 @@
      </div>
      <% if @is_mutual_follow %>
        <!-- DMフォームを表示 -->
-       <%= form_with(model: @message, url: messages_path, local: true) do |f| %>
-         <%= f.hidden_field :room_id, value: @room_id || @room&.id %>
-         <%= f.text_area :content, placeholder: "メッセージを入力..." %>
+       <%= form_with(model: @message, url: room_messages_path(@room), local: true) do |f| %>
+         <%= f.hidden_field :room_id, value: @room_id %>
+         <%= f.text_area :message, placeholder: "メッセージを入力..." %>
          <%= f.submit "送信" %>
        <% end %>
      <% else %>
