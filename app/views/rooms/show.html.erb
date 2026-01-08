@@ -23,7 +23,7 @@
 </div>
 
 <div class="row">
-  <%= form_for @message, data: { turbo: false } do |f| %>
+  <%= form_with(model: @message, url: room_messages_path(@room), local: true) do |f| %>
     <%= f.text_field :message, placeholder: "メッセージを入力してください", size:50, class: "form-text-field" %>
     <%= f.submit "送信", class:"btn btn-success" %>
   <% end %>
