@@ -13,7 +13,7 @@ class Record < ApplicationRecord
         favorites.where(user_id: user.id).exists?
     end
 
-    enum status: { draft: 0, published: 1 }
+    enum status: { published: 0, draft: 1 }
 
     validates :star_rating, presence: true, inclusion: { in: 1..5 }
     validates :event_name, presence: true, length: { maximum: 20 }
