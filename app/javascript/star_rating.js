@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("turbo:load", () => {
      const stars = document.querySelectorAll("#star-rating .star");
      const hiddenField = document.getElementById("record_star_rating");
      
