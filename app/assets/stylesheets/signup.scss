@@ -33,3 +33,21 @@ h1 {
     color: #111111;
 }
 
+.box-name {
+    margin-bottom: 13px;
+}
+
+.box-email {
+    margin-bottom: 13px;
+}
+
+.box-password {
+    margin-bottom: 22px;
+}
+
+.box-name label, .box-email label, .box-password label {
+    font-weight: 700;
+    font-size: 13px;
+    padding-left: 2px;
+    padding-bottom: 2px;
+}
