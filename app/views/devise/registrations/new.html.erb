@@ -17,7 +17,7 @@
          <div class="box-password">
             <%= f.label :password, "パスワード" %>
             <% if @minimum_password_length %>
-            <em>(<%= @minimam_password_length %> characters minimum)</em>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
             <% end %><br />
             <%= f.password_field :password, autocomplete: "new-password" %>
          </div>
@@ -33,7 +33,7 @@
          <% end %>
 
          <div class="box-newusr">
-            <p><span>-----------</span>既に登録されていますか？ </apan>----------</span></p>
+            <p><span>-----------</span>既に登録されていますか？ <span>----------</span></p>
             <%= link_to "ログイン", new_user_session_path %>
          </div>
       </div>
