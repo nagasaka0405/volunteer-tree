@@ -21,5 +21,10 @@
             </div>
             <%= f.password_field :password, autocomplete: "current-password" %>
          </div>
-         
+         <div class="box-login">
+            <%= f.submit "ログイン" %>
+            <% if devise_mapping.rememberable? %>
+            <div class="remember">
+            
+
       
