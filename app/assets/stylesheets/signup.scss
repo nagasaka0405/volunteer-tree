@@ -57,12 +57,15 @@ h1 {
     padding-bottom: 2px;
 }
 
-.column-left {
-    float: left;
+.a-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.column-right {
-    float: right;
+.column-left,
+.column-right  {
+    float: none;
 }
 
 .box-login {
