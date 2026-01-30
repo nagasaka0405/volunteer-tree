@@ -17,6 +17,8 @@ class User < ApplicationRecord
 
   has_one_attached :profile_image
 
+  validates :name, presence: true
+
   # ユーザーをフォローする
   def follow(user_id)
     followers.create(followed_id: user_id)
@@ -32,4 +34,4 @@ class User < ApplicationRecord
     following_users.include?(user)
   end
 end
-  validates :name, presence: true
+
