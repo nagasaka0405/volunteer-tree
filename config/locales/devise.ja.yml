@@ -5,7 +5,7 @@ ja:
     errors:
       models:
         user:
-          atributes:
+          attributes:
             email:
               blank: "Eメールを入力してください。"
             password:
