@@ -55,7 +55,7 @@ h1 {
 }
 
 .box-password em {
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.9)
 }
 
 .box-name label, .box-email label, .box-password label {
@@ -126,9 +126,9 @@ h1 {
     color: rgba(255, 255, 255, 0.9);
     text-align: center;
 
-    color: rgba(255, 255, 255, 0.9);
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    background-color: #fff7b3;
+    color: #333;
+    border: 1px solid #e6d98c;
     border-radius: 4px;
 
     backdrop-filter: blur(4px);
