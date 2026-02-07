@@ -72,6 +72,10 @@ h1 {
     align-items: center;
 }
 
+.column-right a {
+    color: #000;
+}
+
 .column-left,
 .column-right  {
     float: none;
@@ -103,7 +107,7 @@ h1 {
 
 .box-newusr p {
     text-align: center;
-    font-size: 12px;
+    font-size: 13px;
     color: #000;
     margin-bottom: 14px;
 }
