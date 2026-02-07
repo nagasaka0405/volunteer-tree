@@ -1,36 +1,38 @@
-<%= form_with model: record, local:true, html: { multipart: true } do |f| %>
-    <h4>イベント名</h4>
-    <%= f.text_field :event_name, placeholder: "イベント名を入力してください" %>
-    <h4>活動場所</h4>
-    <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "選択してください" %>
-    <h4>イベント種別</h4>
-    <%= f.collection_check_boxes :event_type_ids, EventType.all, :id, :name do |cb| %>
-        <div>
-            <%= cb.check_box %>
-            <%= cb.label %>
-        </div>
-    <% end %>
-    <h4>活動記録</h4>
-    <%= f.text_area :content %>
-    <h4>評価</h4>
-    <div id="star-rating">
-        <% 5.times do |i| %>
-            <span class="star" data-value="<%= i+1 %>">☆</span>
-        <% end %>
-    </div>
-    <%= f.hidden_field :star_rating, id: "record_star_rating" %>
+<div class="form-card">
+   <%= form_with model: record, local:true, html: { multipart: true } do |f| %>
+       <h4>イベント名</h4>
+       <%= f.text_field :event_name, placeholder: "イベント名を入力してください" %>
+       <h4>活動場所</h4>
+       <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "選択してください" %>
+       <h4>イベント種別</h4>
+       <%= f.collection_check_boxes :event_type_ids, EventType.all, :id, :name do |cb| %>
+           <div>
+               <%= cb.check_box %>
+               <%= cb.label %>
+           </div>
+       <% end %>
+       <h4>活動記録</h4>
+       <%= f.text_area :content %>
+       <h4>評価</h4>
+       <div id="star-rating">
+           <% 5.times do |i| %>
+               <span class="star" data-value="<%= i+1 %>">☆</span>
+           <% end %>
+       </div>
+       <%= f.hidden_field :star_rating, id: "record_star_rating" %>
 
-    <h4>写真を添付</h4>
-        <%= f.file_field :photo %>
+       <h4>写真を添付</h4>
+           <%= f.file_field :photo %>
         
-    <% if record.persisted? && record.photo.attached? %>
-        <div class="preview">
-          <p>現在の写真:</p>
-          <%= image_tag record.photo, size: "200x200" %>
-        </div>
-    <% end %>
-    <div class="form-group">
-         <%= f.select :status, Record.statuses.keys.map { |k| [t("enums.record.status.#{k}"),k]}, {}, {class: "custom-select w-25 mb-3"} %>
-    </div>
-    <%= f.submit '投稿する' %>
-<% end %>
+       <% if record.persisted? && record.photo.attached? %>
+          <div class="preview">
+             <p>現在の写真:</p>
+             <%= image_tag record.photo, size: "200x200" %>
+           </div>
+       <% end %>
+       <div class="form-group">
+            <%= f.select :status, Record.statuses.keys.map { |k| [t("enums.record.status.#{k}"),k]}, {}, {class: "custom-select w-25 mb-3"} %>
+       </div>
+       <%= f.submit '投稿する' %>
+   <% end %>
+</div>
