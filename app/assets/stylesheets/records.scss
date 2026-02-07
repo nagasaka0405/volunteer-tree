@@ -13,8 +13,13 @@ h1 {
     background-color: rgba(255, 255, 255, 0.4);
     background-blend-mode: lighten;
 
-    
+    display: flex;
+    justify-content: center;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
 }
+
+
 
 .form-label {
     font-size: 20px;
