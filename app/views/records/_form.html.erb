@@ -3,14 +3,18 @@
        <h4>イベント名</h4>
        <%= f.text_field :event_name, placeholder: "イベント名を入力してください" %>
        <h4>活動場所</h4>
-       <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "選択してください" %>
+       <div class="event-types">
+          <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "選択してください" %>
+       </div>
        <h4>イベント種別</h4>
-       <%= f.collection_check_boxes :event_type_ids, EventType.all, :id, :name do |cb| %>
-           <div>
-               <%= cb.check_box %>
-               <%= cb.label %>
-           </div>
-       <% end %>
+       <div class="event-types">
+          <%= f.collection_check_boxes :event_type_ids, EventType.all, :id, :name do |cb| %>
+              <div>
+                  <%= cb.check_box %>
+                  <%= cb.label %>
+              </div>
+          <% end %>
+       </div>
        <h4>活動記録</h4>
        <%= f.text_area :content %>
        <h4>評価</h4>

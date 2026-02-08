@@ -123,3 +123,32 @@ h1 {
 .caption {
     margin-bottom: 0;
 }
+
+.input[type="text"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    background: #fff;
+}
+
+.input[type="text"]:focus,
+textarea:focus,
+select:focus {
+    border-color: #7fbf7f;
+    box-shadow: 0 0 4px rgba(60, 120, 80, 0.3);
+    outline: none;
+}
+
+.event-types div {
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+}
+
+.event-types label {
+    margin-left: 6px;
+}
