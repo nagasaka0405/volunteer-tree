@@ -152,3 +152,19 @@ select:focus {
 .event-types label {
     margin-left: 6px;
 }
+
+input[type="submit"] {
+    width: 100%;
+    padding: 10px 0;
+    background: linear-gradient(to bottom, #f7dfa5,#f0c14b);
+    border: 1px solid #a88734;
+    border-radius: 6px;
+    font-size: 15px;
+    color: #333;
+    margin-top: 1.5rem;
+}
+
+input[type="submit"]:hover {
+    background: #f0c14b;
+    cursor: pointer;
+}
