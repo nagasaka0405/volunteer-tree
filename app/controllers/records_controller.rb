@@ -14,7 +14,7 @@ class RecordsController < ApplicationController
 
   def index
     @records = Record.published.page(params[:page]).reverse_order
-    @records = @records.where('ecent_name LIKE?', "%#{params[:search]}%") if params[:search].present?
+    @records = @records.where('event_name LIKE?', "%#{params[:search]}%") if params[:search].present?
   end
 
   def show
