@@ -194,3 +194,15 @@ input[type="submit"]:hover {
 .btn-delete:hover {
     background-color: #d32f2f;
 }
+
+.card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 2rem;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+}
+
+.card img {
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
