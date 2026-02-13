@@ -204,19 +204,20 @@ input[type="submit"]:hover {
     background: #ffffff;
     border-radius: 14px;
     padding: 2rem;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
 }
 
 .card img {
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    margin-bottom: 1rem;
 }
 
 .card h2 {
-    font-size: 1.4rem;
-    font-weight: bold;
+    font-size: 1.3rem;
+    font-weight: 700;
     border-left: 4px solid #4dabf7;
-    padding-left: 0.5rem;
+    padding-left: 0.6rem;
     margin-bottom: 0.8rem;
 }
 
