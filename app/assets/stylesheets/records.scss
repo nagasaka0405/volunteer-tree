@@ -1,3 +1,7 @@
+html {
+    font-size: 30px;
+}
+
 h1 {
     font-family: serif;
 }
@@ -54,7 +58,7 @@ h1 {
 
 .caption {
     color: black;
-    font-size: 20px;
+    font-size: 40px;
     text-decoration: none;
 }
 
@@ -185,19 +189,19 @@ input[type="submit"]:hover {
 }
 
 .btn-edit {
-    background-color: #4dabf7;
+    background-color: #bbdefb;
 }
 
 .btn-edit:hover {
-    background-color: #339af0;
+    background-color: #90caf9;
 }
 
 .btn-delete {
-    background-color: #fa5252;
+    background-color: #bbdefb;
 }
 
 .btn-delete:hover {
-    background-color: #e03131;
+    background-color: #90caf9;
 }
 
 .card {
@@ -226,13 +230,13 @@ input[type="submit"]:hover {
     padding: 0.4rem 0.8rem;
     border-radius: 20px;
     background-color: #ffe4ec;
-    color: #90caf9;
+    color: #fa5252;
     text-decoration: none;
     transition: 0.2s;
 }
 
 .favorite_btn:hover {
-    background-color: #ffb6d4;
+    background-color: #ffe4ec;
     transform: scale(1.05);
 }
 
