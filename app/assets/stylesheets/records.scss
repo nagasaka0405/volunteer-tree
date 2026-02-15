@@ -164,16 +164,16 @@ select:focus {
 input[type="submit"] {
     width: 100%;
     padding: 10px 0;
-    background: linear-gradient(to bottom, #f7dfa5,#f0c14b);
-    border: 1px solid #a88734;
+    background: #fffdd0;
     border-radius: 6px;
-    font-size: 15px;
+    font-size: 25px;
+    text-align: center;
     color: #333;
     margin-top: 1.5rem;
 }
 
 input[type="submit"]:hover {
-    background: #f0c14b;
+    background: #e6d5b8;
     cursor: pointer;
 }
 
@@ -182,13 +182,15 @@ input[type="submit"]:hover {
     display: inline-block;
     padding: 0.5rem 1rem;
     border-radius: 6px;
-    color: #fff;
+    color: #000080;
+    text-align: center;
     text-decoration: none;
     font-size: 0.9rem;
     transition: 0.2s;
 }
 
 .btn-edit {
+    margin-bottom: 0.5rem;
     background-color: #bbdefb;
 }
 
