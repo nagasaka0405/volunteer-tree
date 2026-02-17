@@ -38,7 +38,20 @@ h1 {
 }
 
 .form-label {
-    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: block;
+    font-size: #333;
+}
+
+.form-card input,
+.form-card select,
+.form-card textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 8px;
+    font-size: 15px;
+    background: #fff;
 }
 
 .form-group {
