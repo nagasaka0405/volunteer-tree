@@ -52,6 +52,7 @@ h1 {
     border-radius: 8px;
     font-size: 15px;
     background: #fff;
+    margin-bottom: 20px
 }
 
 .form-group {
@@ -167,14 +168,22 @@ select:focus {
 }
 
 .event-types div {
-    margin-bottom: 6px;
     display: flex;
     align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
 }
 
 .event-types label {
-    margin-left: 6px;
+    font-weight: 500;
+    color: #444;
+    cussor: pointer;
 }
+
+.event-types input[type="checkbox"] {
+    accent-color: #4CAF50;
+}
+
 
 input[type="submit"] {
     width: 100%;
@@ -261,3 +270,13 @@ input[type="submit"]:hover {
     padding-top: 3rem;
     padding-bottom: 3rem;
 }
+
+.section-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 32px 0 12px;
+    color: #2c3e50;
+}
+
+
+  
