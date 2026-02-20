@@ -175,12 +175,18 @@ select:focus {
 }
 
 .event-types label {
+    line-height: 1.4;
+    display: inline-block;
+    margin: 0;
     font-weight: 500;
     color: #444;
     cussor: pointer;
 }
 
 .event-types input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
     accent-color: #4CAF50;
 }
 
