@@ -319,4 +319,24 @@ input[type="submit"]:hover {
     margin-bottom: 20px;
   }
   
-  
+.one-record {
+    background: #fff;
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.8);
+    transition: 0.2s;
+    text-align: left;
+}
+
+.one-record:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.one-record img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 10px;
+}
