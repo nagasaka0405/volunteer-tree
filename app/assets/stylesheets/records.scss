@@ -340,3 +340,26 @@ input[type="submit"]:hover {
     border-radius: 12px;
     margin-bottom: 10px;
 }
+
+.caption {
+    margin: 4px 0;
+    color: #333;
+    font-size: 0.95rem;
+}
+
+.caption:first-of-type {
+    font-weight: 600; /* ユーザー名 */
+}
+
+.caption:nth-of-type(2) {
+    font-size: 1.05rem; /* イベント名 */
+    font-weight: 700;
+    margin-top: 6px;
+}
+
+.caption:nth-of-type(3),
+.caption:nth-of-type(4) {
+    color: #777; /* 閲覧数・コメント数 */
+    font-size: 0.85rem;
+}
+
