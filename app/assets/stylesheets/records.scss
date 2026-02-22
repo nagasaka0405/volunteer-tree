@@ -363,3 +363,34 @@ input[type="submit"]:hover {
     font-size: 0.85rem;
 }
 
+.index-left {
+    gap: 24px;
+}
+
+.row form input[type="text"] {
+    padding: 10px 14px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    width: 200px;
+    transition: 0.2s;
+}
+
+.row form input[type="text"]:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 0 3px rgba(76,175,80,0.2);
+    outline: none;
+}
+
+.row form input[type="submit"] {
+    padding: 8px 16px;
+    border-radius: 20px;
+    background: #4CAF50;
+    color: #fff;
+    border: none;
+    margin-left: 8px;
+    transition: 0.2s;
+}
+
+.row form input[type="submit"]:hover {
+    background: #43A047;
+}
