@@ -3,7 +3,7 @@
        <h3 class="section-title">イベント名</h3>
        <%= f.text_field :event_name, placeholder: "イベント名を入力してください" %>
        <h3 class="section-title">活動場所</h3>
-       <div class="event-types">
+       <div class="prefecture-select">
           <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "選択してください" %>
        </div>
        <h3 class="section-title">イベント種別</h3>
