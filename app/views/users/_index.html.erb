@@ -1,17 +1,17 @@
 <div class="row mt-5 w-50">
-<% users.each do |user| %>
-   <div class="user card mt-3">
-      <%= link_to user_path(user) do %>
-         <% if user.profile_image.attached? %>
-            <%= image_tag user.profile_image, class: "profile-mt-3" %>
-         <% else %>
-            <%= image_tag "no_image.png", class: "profile-img" %>
+   <% users.each do |user| %>
+      <div class="user card mt-3">
+         <%= link_to user_path(user) do %>
+            <% if user.profile_image.attached? %>
+               <%= image_tag user.profile_image, class: "profile-mt-3" %>
+            <% else %>
+               <%= image_tag "no_image.png", class: "profile-img" %>
+            <% end %>
+            <p class="caption h4 mt-4"><%= user.name %></p>
+          </div>
+          <p class="caption"><%= "#{user.records.count} 投稿" %></p>
          <% end %>
-         <p class="caption h4 mt-4"><%= user.name %></p>
-       </div>
-       <p class="caption"><%= "#{user.records.count} 投稿" %></p>
-      <% end %>
-   </div>
-<% end %>
+      </div>
+   <% end %>
 </div>
 <%= paginate users %>

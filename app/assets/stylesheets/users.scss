@@ -24,11 +24,24 @@
   }
  
   .profile_image {
-    width: 70px;
-    height: 70px;
+    width: 8px;
+    height: 80px;
     border-radius: 50%;
     object-fit: cover;
     object-position: center;
     display: block;
-    margin: 0 auto;
+    margin: 0 auto;12px
   }
+
+  .user-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-top: 8px;
+  }
+
+  .user-post-count {
+    font-size: 0.85rem;
+    color: #777;
+    margin-top: 4px;
+  }
+  
