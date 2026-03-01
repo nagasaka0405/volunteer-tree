@@ -3,7 +3,7 @@
       <div class="user card mt-3">
          <%= link_to user_path(user) do %>
             <% if user.profile_image.attached? %>
-               <%= image_tag user.profile_image, class: "profile-mt-3" %>
+               <%= image_tag user.profile_image, class: "profile-img" %>
             <% else %>
                <%= image_tag "no_image.png", class: "profile-img" %>
             <% end %>
