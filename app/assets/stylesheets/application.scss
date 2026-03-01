@@ -45,16 +45,9 @@
    padding: 0;
  }
 
- .profiler-results {
-   display: none;
- }
 
- .profile_image {
-   width: 60px;
-   height: 60px;
-   border-radius: 50%;
-   object-fit: cover;
  }
  @import "homes";
  @import "records";
  @import "signup";
+ @import "users";
