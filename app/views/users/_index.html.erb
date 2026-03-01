@@ -1,15 +1,28 @@
-<div class="row mt-5 w-50">
+<div class="my-plofile-section">
+   <% if current_user.profile_image.attached? %>
+      <%= image_tag current_user.profile_image, class: "my-profile-img" %>
+   <% else %>
+      <%= image_tag "no-image.png", class: "my-profile-img" %>
+   <% end %>
+
+   <p class="my-neme"><%= current_user.name %></p>
+   <p class="my-post-count"><%= "#{current_user.records.count} 投稿" %></p>
+</div>
+
+<hr class="section-divider">
+
+<div class="user-list">
    <% users.each do |user| %>
-      <div class="user card mt-3">
+      <div class="user card">
          <%= link_to user_path(user) do %>
             <% if user.profile_image.attached? %>
                <%= image_tag user.profile_image, class: "profile-img" %>
             <% else %>
                <%= image_tag "no_image.png", class: "profile-img" %>
             <% end %>
-            <p class="caption h4 mt-4"><%= user.name %></p>
-          </div>
-          <p class="caption"><%= "#{user.records.count} 投稿" %></p>
+
+            <p class="user-name"><%= user.name %></p>
+            <p class="user-post-count"><%= "#{user.records.count} 投稿" %></p>
          <% end %>
       </div>
    <% end %>
