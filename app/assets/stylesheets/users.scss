@@ -40,7 +40,7 @@ my-name {
 }
 
 .user-card:hover {
-    transform: translateY(4px);
+    transform: translateY(-4px);
     box-shadow: 0 8px 20px rgba(0,0,0,0.12);
 }
 
@@ -48,6 +48,8 @@ my-name {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap:24px;
+    width: 100%;
+    padding: 0 20px;
 }
 
 
@@ -60,20 +62,16 @@ my-name {
     height: 80px;
     border-radius: 50%;
     object-fit: cover;
-    object-position: center;
-    display: block;
     margin: 0 auto 12px;
   }
 
   .user-name {
     font-size: 1.1rem;
     font-weight: 600;
-    margin-top: 8px;
   }
 
   .user-post-count {
     font-size: 0.85rem;
     color: #777;
-    margin-top: 4px;
   }
   
