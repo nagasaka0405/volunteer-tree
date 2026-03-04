@@ -34,6 +34,6 @@ class User < ApplicationRecord
     following_users.include?(user)
   end
 
-  scope :except, ->(user) { where.not(id: user.id) }
+  User.excluding(currentuser)
 end
 
