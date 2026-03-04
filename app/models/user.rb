@@ -34,6 +34,6 @@ class User < ApplicationRecord
     following_users.include?(user)
   end
 
-  User.excluding(currentuser)
+
 end
 

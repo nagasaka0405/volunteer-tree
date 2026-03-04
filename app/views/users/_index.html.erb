@@ -18,7 +18,7 @@
             <% if user.profile_image.attached? %>
                <%= image_tag user.profile_image, class: "profile-img" %>
             <% else %>
-               <%= image_tag "no_image.png", class: "profile-img" %>
+               <%= image_tag "no-image.png", class: "profile-img" %>
             <% end %>
 
             <p class="user-name"><%= user.name %></p>
