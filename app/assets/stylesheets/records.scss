@@ -371,7 +371,7 @@ input[type="submit"]:hover {
     padding: 10px 14px;
     border-radius: 20px;
     border: 1px solid #ccc;
-    width: 200px;
+    width: 350px;
     transition: 0.2s;
 }
 
@@ -382,6 +382,7 @@ input[type="submit"]:hover {
 }
 
 .row form input[type="submit"] {
+    width: auto;
     padding: 8px 16px;
     border-radius: 20px;
     background: #4CAF50;
