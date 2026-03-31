@@ -46,7 +46,7 @@
 .user-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap:24px;
+    gap: 28px;
     width: 100%;
     padding: 0 20px;
 }
@@ -82,6 +82,7 @@
     padding: 20px 0;
   }
   
-  .glass-card {
-
-  }
+body {
+  background: linear-gradient(135deg, #f2f7f4 0%, #e8f0ea 50%, #f7faf7 100%);
+  background-attachment: fixed;
+}
