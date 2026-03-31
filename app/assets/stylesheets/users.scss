@@ -17,7 +17,8 @@
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 16px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    object-fit: cover;
+    box-shadow: 0 0 0 4px 12px rgba(0,0,0,0.6), 0 4px 12px rgba(0,0,0,0.15);
 }
 
 .my-name {
