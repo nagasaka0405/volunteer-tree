@@ -1,5 +1,6 @@
 .my-profile-section ,
 .user-card {
+    @extend .glass-card;
     background: rgba(255, 255, 255, 0.55);
     backdrop-filter: blur(8px);
     border-radius: 20px;
@@ -36,6 +37,14 @@
     margin: 40px 0;
     border: none;
     border-top: 1px solid #ddd;
+}
+
+.user-card {
+  @extend .glass-card;
+  width: 90%;
+  max-width: 350px;
+  margin: 20px auto;
+  transition: 0.2s ease;
 }
 
 .user-card:hover {
@@ -85,4 +94,12 @@
 body {
   background: linear-gradient(135deg, #f2f7f4 0%, #e8f0ea 50%, #f7faf7 100%);
   background-attachment: fixed;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  border-radius: 18px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+  padding: 24px;
 }
