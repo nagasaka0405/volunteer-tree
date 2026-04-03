@@ -10,6 +10,7 @@
     margin: 20px auto 40px;
     text-align: center;
     box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
 }
 
 .my-profile-img {
@@ -20,6 +21,11 @@
     margin-bottom: 16px;
     object-fit: cover;
     box-shadow: 0 0 0 4px 12px rgba(0,0,0,0.6), 0 4px 12px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+}
+
+.my-profile-section:hover .my-profile-img {
+  transform: scale(1.08);
 }
 
 .my-name {
