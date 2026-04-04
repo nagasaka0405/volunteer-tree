@@ -10,7 +10,7 @@ a {
 .bg {
     background-image:linear-gradient(to right, rgba(60, 120, 80, 0.35), rgba(60, 120, 80, 0.1)),image-url("login.png");
     background-size: cover;
-    background-position: center;
+    background-position: top center;
     background-repeat: no-repeat;
 
     width: 100%;
@@ -33,7 +33,12 @@ a {
     padding: 20px 26px;
 }
 
-h1 {
+h1,
+label,
+.box-newusr a,
+.box-password em  {
+    color: rgba(255,255,255,0.95);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.4);
     font-weight: 400;
     font-size: 28px;
     line-height: 1.2;
