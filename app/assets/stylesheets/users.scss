@@ -18,9 +18,10 @@
     height: 130px;
     border-radius: 50%;
     object-fit: cover;
-    margin-bottom: 16px;
+    margin-right: 16px;
     object-fit: cover;
-    box-shadow: 0 0 0 4px 12px rgba(0,0,0,0.6), 0 4px 12px rgba(0,0,0,0.15);
+    display: block;
+    box-shadow: 0 0 0 4px rgba(0,0,0,0.6), 0 4px 12px rgba(0,0,0,0.15);
     transition: transform 0.3s ease;
 }
 
@@ -116,4 +117,16 @@ body {
 
 .profile-edit .form-card textarea {
   height: 250px;
+}
+
+.d-flex.w-100 {
+  align-items: center;
+}
+
+.profile {
+  min-height: 120px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  line-height: 1.4;
 }
