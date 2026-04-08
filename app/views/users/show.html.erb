@@ -25,9 +25,9 @@
      <% end %>
      <div class="d-flex w-100">
         <% if @user.profile_image.attached? %>
-           <%= image_tag @user.profile_image, size: '100x100', class: "profile-img" %>
+           <%= image_tag @user.profile_image, size: '100x100', class: "my-profile-img" %>
         <% else %>
-           <%= image_tag "no_image.png", size: '100x100', class: "profile-img" %>
+           <%= image_tag "no_image.png", size: '100x100', class: "my-profile-img" %>
         <% end %>
         <h4 class="ml-3 mb-3 card w-100 profile"><%= @user.profile %></h4>
      </div> 
