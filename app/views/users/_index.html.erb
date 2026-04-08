@@ -2,7 +2,7 @@
    <% if current_user.profile_image.attached? %>
       <%= image_tag current_user.profile_image, class: "profile-img" %>
    <% else %>
-      <%= image_tag "no_image.png", class: "my-profile-img" %>
+      <%= image_tag "no_image.png", class: "profile-img" %>
    <% end %>
 
    <p class="my-name"><%= current_user.name %></p>
