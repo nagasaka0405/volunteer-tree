@@ -47,7 +47,9 @@ gem "image_processing", "~> 1.2"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[ mri windows ]
+  gem 'sqlite3', '~> 1.4'
+  # gem "debug", platforms: %i[ mri windows ] 実装のためコメントアウト
+  gem "debug", platforms: %i[ mri mingw ]
 end
 
 group :development do
@@ -65,6 +67,10 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
+end
+
+group :production do
+  gem "pg"
 end
 
 gem "devise", "~> 4.9"
