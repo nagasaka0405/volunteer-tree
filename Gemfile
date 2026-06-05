@@ -47,7 +47,7 @@ gem "image_processing", "~> 1.2"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem 'sqlite3', '~> 1.4'
+  gem 'sqlite3', '~> 1.7'
   # gem "debug", platforms: %i[ mri windows ] 実装のためコメントアウト
   gem "debug", platforms: %i[ mri mingw ]
 end
