@@ -80,5 +80,5 @@ ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 
 # Start the server by default, this can be overwritten at runtime
 EXPOSE 3000
-CMD ["bash", "-lc", "bundle exec rails server -p 3000 -e production"]
+CMD ["bash", "-lc", "bundle exec rails db:migrate && bundle exec rails server -p 3000 -e production"]
 
