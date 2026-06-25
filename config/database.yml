@@ -23,5 +23,6 @@ test:
 production:
 production:
   url: <%= ENV["DATABASE_URL"] %>
+  adapter: postgresql
 
 
