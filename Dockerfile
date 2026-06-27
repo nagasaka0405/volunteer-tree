@@ -79,6 +79,8 @@ USER rails:rails
 EXPOSE 3000
 
 COPY entrypoint.sh /rails/entrypoint.sh
+RUN chmod +x /rails/entrypoint.sh && sed -i 's/\r$//' /rails/entrypoint.sh
 ENTRYPOINT ["/rails/entrypoint.sh"]
+
 
 
