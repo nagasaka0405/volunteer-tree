@@ -76,11 +76,9 @@ RUN useradd rails --create-home --shell /bin/bash && \
 USER rails:rails
 
 # Entrypoint prepares the database.
-
-
-# Start the server by default, this can be overwritten at runtime
 EXPOSE 3000
-CMD bash -lc "bundle exec rails server -p ${PORT:-3000} -e production"
 
+COPY entrypoint.sh /rails/entrypoint.sh
+ENTRYPOINT ["/rails/entrypoint.sh"]
 
 
