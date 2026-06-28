@@ -19,14 +19,7 @@ FROM base as build
 
 # Install packages needed to build gems
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y \
-        build-essential \
-        git \
-        libvips \
-        pkg-config \
-        libpq-dev \
-        nodejs \
-        libyaml-dev \
+apt-get install --no-install-recommends -y build-essential git libvips pkg-config libpq-dev nodejs
     && rm -rf /var/lib/apt/lists/* /var/cache/apt/archives
 
 
@@ -59,7 +52,7 @@ FROM base
 
 # Install packages needed for deployment
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y \
+    apt-get install --no-install-recommends -y curl libsqlite3-0 libvips libpq5 nodejs && \
         curl \
         libsqlite3-0 \
         libvips \
@@ -67,7 +60,7 @@ RUN apt-get update -qq && \
         nodejs \
         libyaml-dev \
         build-essential \
-    && rm -rf /var/lib/apt/lists /var/cache/apt/archives
+    rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 # Copy built artifacts: gems, application
 COPY --from=build /usr/local/bundle /usr/local/bundle
