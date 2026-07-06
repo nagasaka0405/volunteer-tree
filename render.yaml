@@ -1,13 +1,13 @@
 databases:
   - name: myapp-postgres
-    databaseName: volunteer_tree
+    databaseName: volunteer_tree_i4uf
     user: m_nagasaka
     region: Oregon
 
 
 services:
   - type: web
-    name: volunteer_tree
+    name: volunteer_tree_i4uf
     env: ruby
     region: Oregon
     plan: free
@@ -17,7 +17,7 @@ services:
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: volunteer_tree
+          name: volunteer_tree_i4uf
           property: connectionString
       - key: TAILS_MASTER_KEY
         sync: false
