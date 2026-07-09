@@ -1,11 +1,8 @@
 #!/bin/bash
 set -e
 
-# 本番起動時だけ migrate を実行
-if [ "$RENDER" = "true" ]; then
-  echo "Running migrations..."
-  bundle exec rails db:migrate
-fi
+echo "Running migrations and seeds..."
+DISABLE_DATABASE_ENVIRONMENT_CHECK=1 bundle exec rails db:seed
 
 echo "Starting server..."
 bundle exec rails server -p ${PORT:-3000} -e production
