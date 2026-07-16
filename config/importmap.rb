@@ -1,7 +1,7 @@
 # Pin npm packages by running ./bin/importmap
 
 pin "application"
-pin "star-rating"
+pin "star_rating"
 
 # Bootstrap の ES Modules 版を pin
 pin "bootstrap", to: "https://ga.jspm.io/npm:bootstrap@5.3.2/dist/js/bootstrap.esm.js"
