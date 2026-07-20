@@ -1,3 +1,3 @@
-import "./star_rating.js"// Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
+import "star_rating"
 import "bootstrap"
 import "@hotwired/turbo-rails"
